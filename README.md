@@ -1,3 +1,3 @@
 # EntornoInteligente
 
-<h3>Deben crear una rama (branch) y trabajar sobre esa</h3>
+<h3>Deben crear una rama (branch), trabajar y subir repositorio sobre esa rama</h3>
