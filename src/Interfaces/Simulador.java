@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Simulador extends javax.swing.JFrame {
@@ -127,6 +128,12 @@ public static void llenarTabla(){
         camoff = new javax.swing.JButton();
         camonn = new javax.swing.JButton();
         Clientes1 = new javax.swing.JButton();
+        EVENTOS = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        respeventos = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         Editar.setText("Editar");
         jPopupMenu1.add(Editar);
@@ -357,7 +364,42 @@ public static void llenarTabla(){
         });
         jPanel1.add(Clientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 140, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 790));
+        EVENTOS.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "EVENTOS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 1, 12))); // NOI18N
+        EVENTOS.setPreferredSize(new java.awt.Dimension(90, 85));
+        EVENTOS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("Intruso");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        EVENTOS.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jButton2.setText("Sensor");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        EVENTOS.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        jPanel1.add(EVENTOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 600, 100, 110));
+        EVENTOS.getAccessibleContext().setAccessibleName("EVENTOS");
+
+        respeventos.setColumns(20);
+        respeventos.setRows(5);
+        jScrollPane1.setViewportView(respeventos);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 670, 320, 30));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("RESPUESTA A EVENTOS.");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 650, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 790));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -406,6 +448,10 @@ public static void llenarTabla(){
         ImageIcon tamaño2=new ImageIcon(logo2.getImage().getScaledInstance(luz1.getWidth(), luz1.getHeight(), Image.SCALE_DEFAULT));
         luz1.setIcon(tamaño2);
         
+        String mensaje;
+        mensaje = "Luz baja encendida ";
+        respeventos.setText(mensaje);
+        
     }//GEN-LAST:event_luzbajaActionPerformed
 
     private void luzapagada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luzapagada1ActionPerformed
@@ -420,6 +466,10 @@ public static void llenarTabla(){
         ImageIcon logo2=new ImageIcon(getClass().getResource("/Imagenes/LuzApagada.png"));
         ImageIcon tamaño2=new ImageIcon(logo2.getImage().getScaledInstance(luz1.getWidth(), luz1.getHeight(), Image.SCALE_DEFAULT));
         luz1.setIcon(tamaño2);
+        
+        String mensaje;
+        mensaje = "Luz apagada ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_luzapagada1ActionPerformed
 
     private void luzaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luzaltaActionPerformed
@@ -434,6 +484,10 @@ public static void llenarTabla(){
         ImageIcon logo2=new ImageIcon(getClass().getResource("/Imagenes/luz7.png"));
         ImageIcon tamaño2=new ImageIcon(logo2.getImage().getScaledInstance(luz1.getWidth(), luz1.getHeight(), Image.SCALE_DEFAULT));
         luz1.setIcon(tamaño2);
+        
+        String mensaje;
+        mensaje = "Luz alta encendida ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_luzaltaActionPerformed
 
     private void luzmediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luzmediaActionPerformed
@@ -448,6 +502,10 @@ public static void llenarTabla(){
         ImageIcon logo2=new ImageIcon(getClass().getResource("/Imagenes/luz4.png"));
         ImageIcon tamaño2=new ImageIcon(logo2.getImage().getScaledInstance(luz1.getWidth(), luz1.getHeight(), Image.SCALE_DEFAULT));
         luz1.setIcon(tamaño2);
+        
+        String mensaje;
+        mensaje = "Luz media encendida ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_luzmediaActionPerformed
 
     private void abiertaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abiertaaActionPerformed
@@ -464,6 +522,10 @@ public static void llenarTabla(){
         puerta.setIcon(tamaño1);
         
         abierta.setVisible(true);
+        
+        String mensaje;
+        mensaje = "Puerta abierta ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_abiertaaActionPerformed
 
     private void cerradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerradaActionPerformed
@@ -476,11 +538,18 @@ public static void llenarTabla(){
         ImageIcon logo1=new ImageIcon(getClass().getResource("/Imagenes/puerta.png"));
         ImageIcon tamaño1=new ImageIcon(logo1.getImage().getScaledInstance(puerta.getWidth(), puerta.getHeight(), Image.SCALE_DEFAULT));
         puerta.setIcon(tamaño1);
+        
+        String mensaje;
+        mensaje = "Puerta cerrada ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_cerradaActionPerformed
 
     private void aireoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aireoffActionPerformed
         
         onaire.setVisible(false);
+        String mensaje;
+        mensaje = "Aire apagado ";
+        respeventos.setText(mensaje);
         
     }//GEN-LAST:event_aireoffActionPerformed
 
@@ -490,10 +559,18 @@ public static void llenarTabla(){
         onaire.setIcon(tamaño5);
         
         onaire.setVisible(true);
+        
+        String mensaje;
+        mensaje = "Aire encendido ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_aireonActionPerformed
 
     private void camoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_camoffActionPerformed
         camon.setVisible(false);
+        
+        String mensaje;
+        mensaje = "Camara apagada ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_camoffActionPerformed
 
     private void camonnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_camonnActionPerformed
@@ -502,6 +579,10 @@ public static void llenarTabla(){
         camon.setIcon(tamaño5);
         
         camon.setVisible(true);
+        
+        String mensaje;
+        mensaje = "Camara encendida ";
+        respeventos.setText(mensaje);
     }//GEN-LAST:event_camonnActionPerformed
 
     private void Clientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clientes1ActionPerformed
@@ -511,6 +592,20 @@ public static void llenarTabla(){
     private void UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsuariosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       //JOptionPane.showMessageDialog(null,"Se a detetado un intruso");
+       
+       String mensaje;
+       mensaje = "Sensor activado, se a detectado un intruso";
+       respeventos.setText(mensaje);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String mensaje;
+        mensaje = "Sensor de movimiento activado ";
+        respeventos.setText(mensaje);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -555,6 +650,7 @@ public static void llenarTabla(){
     private javax.swing.JMenuItem Anular;
     private javax.swing.JButton Clientes1;
     private javax.swing.JButton Componentes;
+    private javax.swing.JPanel EVENTOS;
     private javax.swing.JMenuItem Editar;
     private javax.swing.JButton Estados;
     private javax.swing.JButton Horarios;
@@ -574,13 +670,17 @@ public static void llenarTabla(){
     private javax.swing.JButton camonn;
     private javax.swing.JButton cerrada;
     private javax.swing.JLabel fondo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel luz1;
     private javax.swing.JLabel luz2;
     private javax.swing.JLabel luz3;
@@ -592,6 +692,7 @@ public static void llenarTabla(){
     private javax.swing.JLabel on;
     private javax.swing.JLabel onaire;
     private javax.swing.JLabel puerta;
+    private javax.swing.JTextArea respeventos;
     private javax.swing.JLabel txt_administrador;
     // End of variables declaration//GEN-END:variables
 }
